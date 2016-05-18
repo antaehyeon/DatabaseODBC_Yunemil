@@ -24,15 +24,9 @@
     <ClCompile Include="Mssql.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Function.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Data.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="MsSQL.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
