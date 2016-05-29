@@ -36,7 +36,7 @@ SQLINTEGER F_EMPNO;
 
 SQLHENV hEnv = NULL;
 SQLHDBC hDbc = NULL;
-static SQLCHAR query[100];	// Query statement
+static SQLCHAR query[256];	// Query statement
 SQLHSTMT hStmt;				// Statement Handle#pragma once
 
 int mode = 0;
@@ -45,6 +45,7 @@ int selectFunctionNumber = 0;
 int selectNumber = 0;
 
 string querySentence;
+SQLINTEGER COUNTROW;
 
 /*						FUNCTION							*/
 
@@ -55,9 +56,18 @@ void centerString(char * s);
 void printTitle(char * string);
 void printSelectTable();
 void printJoinList();
+void enterTvProgramName();
+void enterCastName();
+void noExistData();
+bool printNoExistMessage(int param);
+void divisionLine();
+void pirntSalarySelectTable();
+void enterSalary();
+void enterEmployeeName();
 
 bool DBConnect(SQLHENV * hEnv, SQLHDBC * hDbc);		// Connect to the SQL Server
 void DBDisconnect(SQLHENV * hEnv, SQLHDBC * hDbc);	// Disconnect from the SQL Server
 
 void SELECT();
+void INSERT();
 void JOIN();

@@ -12,49 +12,32 @@ void main(int argc, char *argv[])
 	{
 		while (true)
 		{
-			mainMenuPrint();
-			cin >> mode;
+			printSelectNumber();
+			cin >> selectFunctionNumber;
 
-			switch (mode)
+			if (SQLAllocHandle(SQL_HANDLE_STMT, hDbc, &hStmt) == SQL_SUCCESS)
 			{
-			case 1: // 쿼리입력모드
-				printInputQueryMenu();
-				cin >> querySentence;
-				break;
-			case 2: // 번호선택모드
-				printSelectNumber();
-				cin >> selectFunctionNumber;
-
-				if (SQLAllocHandle(SQL_HANDLE_STMT, hDbc, &hStmt) == SQL_SUCCESS)
+				switch (selectFunctionNumber)
 				{
-					switch (selectFunctionNumber)
-					{
-					case 1: // SELECT
-						SELECT();
-						break;
-					case 2: // INSERT
-						break;
-					case 3: // DELETE
-						break;
-					case 4: // UPDATE
-						break;
-					case 5: // JOIN
-						JOIN();
-						break;
-					} // switch (입력된 번호에 따라)
-
-					SQLCloseCursor(hStmt);
-					SQLFreeHandle(SQL_HANDLE_STMT, hStmt);
-				}
-				break;
-			case 3:
-				return;
-				break;
-			} // switch (MODE SWITCH)
-		}
-		// Disconnect from the SQL Server
+				case 1: // SELECT
+					SELECT();
+					break;
+				case 2: // INSERT
+					break;
+				case 3: // DELETE
+					break;
+				case 4: // UPDATE
+					break;
+				case 5: // EXIT
+					return;
+				} // switch (입력된 번호에 따라)
+				SQLCloseCursor(hStmt);
+				SQLFreeHandle(SQL_HANDLE_STMT, hStmt);
+			}
+		} // While
+		  // Disconnect from the SQL Server
 		DBDisconnect(&hEnv, &hDbc);
-	} // if (DBConnect = true)
+	}
 	else
 	{
 		cout << "Fail to Connect!!" << endl;
@@ -66,117 +49,232 @@ void SELECT()
 {
 	printSelectTable();
 	cin >> selectTableNum;
+	string str;
+	char s[50];
+	char * ch;
 
 	switch (selectTableNum)
 	{
-	case 1: // BROADCASTING
-		printTitle("BROADCASTING RESULT");
-		sprintf((char*)query, "SELECT * FROM BROADCASTING_STATION");
+	case 1: // TV 프로그램의 시청률 조회
+		printTitle("RESULT");
+		enterTvProgramName();
+		getchar();
+
+		// TV 프로그램명을 입력받음
+		getline(cin, str);
+		ch = (char*)str.c_str();
+		cin.clear();
+
+		sprintf((char*)query, "SELECT TVPNAME, RATING FROM TVPROGRAM WHERE TVPNAME = '%s'", ch);
 		SQLExecDirect(hStmt, query, SQL_NTS);
+		SQLBindCol(hStmt, 1, SQL_C_CHAR, TVPNAME, 20, NULL);
+		SQLBindCol(hStmt, 2, SQL_C_DOUBLE, &RATING, 3, NULL);
 
-		SQLBindCol(hStmt, 1, SQL_INTEGER, &BNO, 4, NULL);
-		SQLBindCol(hStmt, 2, SQL_C_CHAR, BROADNAME, 20, NULL);
-		SQLBindCol(hStmt, 3, SQL_C_CHAR, BROADLOCATION, 70, NULL);
+		// 결과의 ROW를 뽑아서 데이터가 없을 경우 메세지를 따로 출력해주려 했으나 실패..
+		// 결과의 COL 뽑는 함수는 있는데 ROW는 왜 없는지 의문..
+		// 조금 더 알아보고 다시 적용해야 하는 부분
 
-		cout << "BNO	BROADNAME		BROADLOCATION" << endl;
-
-		while (SQLFetch(hStmt) != SQL_NO_DATA)
-		{
-			cout << BNO << "\t" << BROADNAME << "\t" << BROADLOCATION << endl;
-		}
-		system("pause");
-		break;
-	case 2: // TV PROGRAM
-		printTitle("TV PROGRAM RESULT");
-		sprintf((char*)query, "SELECT * FROM TVPROGRAM");
-		SQLExecDirect(hStmt, query, SQL_NTS);
-
-		SQLBindCol(hStmt, 1, SQL_INTEGER, &TVPNO, 8, NULL);
-		SQLBindCol(hStmt, 2, SQL_C_CHAR, TVPNAME, 20, NULL);
-		SQLBindCol(hStmt, 3, SQL_DOUBLE, &RATING, 3, NULL);
-		SQLBindCol(hStmt, 4, SQL_C_CHAR, TVPTIME, 24, NULL);
-		SQLBindCol(hStmt, 5, SQL_INTEGER, &F_BNO_TV, 8, NULL);
+		//SELECT ROW_NUMBER() OVER (ORDER BY EMPNO) AS COUNTROW FROM EMPLOYEE WHERE EMPNO = '211212'
+		//sprintf((char*)query, "SELECT ROW_NUMBER() OVER (ORDER BY TVPNAME) AS COUNTROW FROM TVPROGRAM WHERE TVPNAME = '%s'", ch);
+		//SQLExecDirect(hStmt, query, SQL_NTS);
+		//SQLBindCol(hStmt, 1, SQL_INTEGER, &COUNTROW, 2, NULL);
 		
-		cout << "TVPNO	TVPNAME				RATING		TVPTIME				F_BNO_TV" << endl;
+		// 데이터가 존재하지 않을 시
+		//if (printNoExistMessage(rowsNum)) { break; }
 
+		cout << endl;
+		divisionLine();
 		while (SQLFetch(hStmt) != SQL_NO_DATA)
 		{
-			cout << TVPNO << "\t" << TVPNAME << "\t\t" << RATING << "\t\t" << TVPTIME << "\t\t" << F_BNO_TV << endl;
+			cout << "TV Program Name : " << TVPNAME << endl;
+			cout << "Rating : " << RATING << endl;
+			divisionLine();
 		}
 		system("pause");
 		break;
-	case 3: // ENTERTAINMENT
-		printTitle("ENTERTAINMENT RESULT");
-		sprintf((char*)query, "SELECT * FROM ENTERTAINMENT");
+	case 2: // 배우의 직업과 나이 조회
+		printTitle("RESULT");
+		enterCastName();
+		
+		getchar();
+		getline(cin, str);
+		ch = (char*)str.c_str();
+		cin.clear();
+
+		sprintf((char*)query, "SELECT CASTNAME, CASTJOB, CASTAGE FROM CAST_ WHERE CASTNAME = '%s'", ch);
 		SQLExecDirect(hStmt, query, SQL_NTS);
-
-		SQLBindCol(hStmt, 1, SQL_INTEGER, &ENTNO, 4, NULL);
-		SQLBindCol(hStmt, 2, SQL_C_CHAR, ENTNAME, 20, NULL);
-		SQLBindCol(hStmt, 3, SQL_C_CHAR, ENTLOCATION, 70, NULL);
-
-		cout << "ENTNO	ENTNAME			ENTLOCATION" << endl;
-
-		while (SQLFetch(hStmt) != SQL_NO_DATA)
-		{
-			cout << ENTNO << "\t" << ENTNAME << "\t" << ENTLOCATION << endl;
-		}
-		system("pause");
-		break;
-	case 4: // CAST
-		printTitle("CAST RESULT");
-		sprintf((char*)query, "SELECT * FROM CAST_");
-		SQLExecDirect(hStmt, query, SQL_NTS);
-
-		SQLBindCol(hStmt, 1, SQL_INTEGER, &CASTNO, 8, NULL);
+		SQLBindCol(hStmt, 1, SQL_C_CHAR, CASTNAME, 8, NULL);
 		SQLBindCol(hStmt, 2, SQL_C_CHAR, CASTJOB, 8, NULL);
-		SQLBindCol(hStmt, 3, SQL_C_CHAR, CASTNAME, 8, NULL);
-		SQLBindCol(hStmt, 4, SQL_INTEGER, &CASTAGE, 4, NULL);
+		SQLBindCol(hStmt, 3, SQL_INTEGER, &CASTAGE, 4, NULL);
 
-		cout << "CASTNO		CASTJOB		CASTNAME	CASTANGE" << endl;
+		// 데이터가 존재하지 않을 시
 
+		cout << endl;
+		divisionLine();
 		while (SQLFetch(hStmt) != SQL_NO_DATA)
 		{
-			cout << CASTNO << "\t\t" << CASTJOB << "\t\t" << CASTNAME << "\t\t" << CASTAGE << endl;
+			cout << "Cast Name : " << CASTNAME << endl;
+			cout << "Cast Job : " << CASTJOB << endl;
+			cout << "Cast Age : " << CASTAGE << endl;
+			divisionLine();
+		}
+		system("pause");
+
+		break;
+	case 3: // 방송국 직원의 월급 조회
+		printTitle("RESULT");
+
+		pirntSalarySelectTable();
+		cin >> selectNumber;
+		switch (selectNumber)
+		{
+		case 1: // 급여 검색
+			enterSalary();
+
+			getchar();
+			getline(cin, str);
+			ch = (char*)str.c_str();
+			cin.clear();
+
+			sprintf((char*)query, "SELECT EMPNAME, SALARY FROM EMPLOYEE WHERE EMPNAME = '%s'", ch);
+			SQLExecDirect(hStmt, query, SQL_NTS);
+			SQLBindCol(hStmt, 1, SQL_C_CHAR, EMPNAME, 8, NULL);
+			SQLBindCol(hStmt, 2, SQL_INTEGER, &SALARY, 10, NULL);
+
+			printTitle("RESULT");
+			cout << endl;
+			divisionLine();
+			while (SQLFetch(hStmt) != SQL_NO_DATA)
+			{
+				cout << "Employee Name : " << EMPNAME << endl;
+				cout << "Employee Salary : " << SALARY << endl;
+				divisionLine();
+			}
+			system("pause");
+			break;
+		case 2: // 입력된 값 이상 급여 검색
+			enterSalary();
+
+			getchar();
+			getline(cin, str);
+			ch = (char*)str.c_str();
+			cin.clear();
+
+			sprintf((char*)query, "SELECT EMPNAME, SALARY FROM EMPLOYEE WHERE SALARY >= %s", ch);
+			SQLExecDirect(hStmt, query, SQL_NTS);
+			SQLBindCol(hStmt, 1, SQL_C_CHAR, EMPNAME, 8, NULL);
+			SQLBindCol(hStmt, 2, SQL_INTEGER, &SALARY, 10, NULL);
+
+			printTitle("RESULT");
+			cout << endl;
+			divisionLine();
+			while (SQLFetch(hStmt) != SQL_NO_DATA)
+			{
+				cout << "Employee Name : " << EMPNAME << endl;
+				cout << "Employee Salary : " << SALARY << endl;
+				divisionLine();
+			}
+			system("pause");
+			break;
+		case 3: // 입력된 값 이하 급여 검색
+			enterSalary();
+
+			getchar();
+			getline(cin, str);
+			ch = (char*)str.c_str();
+			cin.clear();
+
+			sprintf((char*)query, "SELECT EMPNAME, SALARY FROM EMPLOYEE WHERE SALARY <= %s", ch);
+			SQLExecDirect(hStmt, query, SQL_NTS);
+			SQLBindCol(hStmt, 1, SQL_C_CHAR, EMPNAME, 8, NULL);
+			SQLBindCol(hStmt, 2, SQL_INTEGER, &SALARY, 10, NULL);
+
+			printTitle("RESULT");
+			cout << endl;
+			divisionLine();
+			while (SQLFetch(hStmt) != SQL_NO_DATA)
+			{
+				cout << "Employee Name : " << EMPNAME << endl;
+				cout << "Employee Salary : " << SALARY << endl;
+				divisionLine();
+			}
+			system("pause");
+			break;
+		default:
+			break;
+		}
+	case 4: // 중첩질의
+		/*
+		SELECT	 BROADNAME
+		FROM	 BROADCASTING_STATION
+		WHERE	 BNO = ( SELECT F_BNO_TV
+						 FROM TVPROGRAM
+						 WHERE TVPNAME = 'TV프로그램 이름');
+		*/
+		enterTvProgramName();
+	
+		getchar();
+		getline(cin, str);
+		ch = (char*)str.c_str();
+		cin.clear();
+
+		sprintf((char*)query, "SELECT BROADNAME FROM BROADCASTING_STATION WHERE BNO = (SELECT F_BNO_TV FROM TVPROGRAM WHERE TVPNAME = '%s'", ch);
+		SQLExecDirect(hStmt, query, SQL_NTS);
+		SQLBindCol(hStmt, 1, SQL_C_CHAR, BROADNAME, 20, NULL);
+
+		printTitle("RESULT");
+		cout << endl;
+		divisionLine();
+		while (SQLFetch(hStmt) != SQL_NO_DATA)
+		{
+			cout << "Broadcasting station corresponding to the " << ch << endl;
+			cout << "Broadcasting station Name : " << BROADNAME << endl;
+			divisionLine();
 		}
 		system("pause");
 		break;
-	case 5: // EMPLOYEE
-		printTitle("EMPLOYEE RESULT");
-		sprintf((char*)query, "SELECT * FROM EMPLOYEE");
+	case 5:
+		/*
+		SELECT EMPNAME, DEPNAME, WEDDINGANNVIERSARY
+		FROM EMPLOYEE AS E, DEPENDENT_ AS D
+		WHERE E.EMPNO = D.F_EMPNO AND (E.EMPNAME = '직원이름');
+		*/
+		enterEmployeeName();
+
+		getchar();
+		getline(cin, str);
+		ch = (char*)str.c_str();
+		cin.clear();
+
+		sprintf((char*)query, "SELECT EMPNAME, DEPNAME, WEDDINGANNVIERSARY FROM EMPLOYEE AS E, DEPENDENT_ AS D WHERE E.EMPNO = D.F_EMPNO AND (E.EMPNAME = '%s');", ch);
 		SQLExecDirect(hStmt, query, SQL_NTS);
+		SQLBindCol(hStmt, 1, SQL_C_CHAR, EMPNAME, 8, NULL);
+		SQLBindCol(hStmt, 2, SQL_C_CHAR, DEPNAME, 8, NULL);
+		SQLBindCol(hStmt, 3, SQL_C_CHAR, WEDDINGANNVIERSARY, 10, NULL);
 
-		SQLBindCol(hStmt, 1, SQL_INTEGER, &EMPNO, 8, NULL);
-		SQLBindCol(hStmt, 2, SQL_C_CHAR, EMPNAME, 8, NULL);
-		SQLBindCol(hStmt, 3, SQL_INTEGER, &SALARY, 10, NULL);
-		SQLBindCol(hStmt, 4, SQL_INTEGER, &F_BNO_EMP, 4, NULL);
-
-		cout << "EMPNO		EMPNAME		SALARY		F_BNO_EMP" << endl;
-
+		printTitle("RESULT");
+		cout << endl;
+		divisionLine();
 		while (SQLFetch(hStmt) != SQL_NO_DATA)
 		{
-			cout << EMPNO << "\t\t" << EMPNAME << "\t\t" << SALARY << "\t\t" << F_BNO_EMP << endl;
+			cout << EMPNAME << " husband is " << DEPNAME << endl;
+			cout << "The wedding anniversary of the couple :  " << WEDDINGANNVIERSARY << endl;
+			divisionLine();
 		}
 		system("pause");
+
 		break;
-	case 6: // DEPENDENT
-		printTitle("DEPENDENT RESULT");
-		sprintf((char*)query, "SELECT * FROM DEPENDENT_");
-		SQLExecDirect(hStmt, query, SQL_NTS);
-
-		SQLBindCol(hStmt, 1, SQL_C_CHAR, DEPNAME, 8, NULL);
-		SQLBindCol(hStmt, 2, SQL_C_CHAR, WEDDINGANNVIERSARY, 10, NULL);
-		SQLBindCol(hStmt, 3, SQL_INTEGER, &F_EMPNO, 4, NULL);
-
-		cout << "DEPNAME		WEDDINGANNVIERSARY		F_EMPNO" << endl;
-
-		while (SQLFetch(hStmt) != SQL_NO_DATA)
-		{
-			cout << DEPNAME << "\t\t" << WEDDINGANNVIERSARY << "\t\t\t\t" << F_EMPNO << endl;
-		}
-		system("pause");
+	case 6:
+		break;
+	default:
 		break;
 	} // switch ( 모드에 따라서 )
 } // SELECT
+
+void INSERT()
+{
+
+}
 
 void JOIN()
 {
@@ -202,5 +300,16 @@ void JOIN()
 		system("pause");
 		break;
 	}
-	
+
+}
+
+bool printNoExistMessage(int param)
+{
+	if (param == 0)
+	{
+		noExistData();
+		getchar();
+		system("pause");
+		return true;
+	}
 }

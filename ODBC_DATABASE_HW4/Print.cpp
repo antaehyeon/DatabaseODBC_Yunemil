@@ -29,14 +29,62 @@ void printSelectNumber()
 	cout << " 2.INSERT" << endl;
 	cout << " 3.DELETE" << endl;
 	cout << " 4.UPDATE" << endl;
-	cout << " 5.JOIN" << endl;
+	cout << " 5.EXIT" << endl;
 	cout << "  → ";
 }
+
+/*						SELECT							*/
 
 void printSelectTable()
 {
 	system("cls");
-	printTitle("SELECT 할 테이블을 입력하세요");
+	printTitle("Please enter the number");
+	cout << " 1. Search TV program rating" << endl;
+	cout << " 2. Search actor age and job" << endl;
+	cout << " 3. Search employees' salary of broadcasting" << endl;
+	cout << " 4. Search Broadcasting station corresponding to the TV program" << endl;
+	cout << "  → ";
+}
+
+void pirntSalarySelectTable()
+{
+	system("cls");
+	printTitle("Please enter the number");
+	cout << " 1. Employee name" << endl;
+	cout << " 2. Standard salary or more" << endl;
+	cout << " 3. Standard salary below " << endl;
+	cout << "  → ";
+}
+
+void enterTvProgramName()
+{
+	cout << "Enter the TV Program Name" << endl;
+	cout << "  → ";
+}
+
+void enterCastName()
+{
+	cout << "Enter the Cast Name" << endl;
+	cout << "  → ";
+}
+
+void enterSalary()
+{
+	cout << "Enter the Salary" << endl;
+	cout << "  → ";
+}
+
+void enterEmployeeName()
+{
+	cout << "Enter the Employee Name" << endl;
+	cout << "  → ";
+}
+
+/*						INSERT							*/
+void insertTable()
+{
+	system("cls");
+	printTitle("어느 테이블에 데이터를 INSERT 하시겠습니까?");
 	cout << " 1. BROADCASTING STATION" << endl;
 	cout << " 2. TV PROGRAM" << endl;
 	cout << " 3. ENTERTAINMENT" << endl;
@@ -46,6 +94,9 @@ void printSelectTable()
 	cout << "  → ";
 }
 
+
+/*						JOIN							*/
+
 void printJoinList()
 {
 	system("cls");
@@ -53,6 +104,14 @@ void printJoinList()
 	cout << " 1. TVPNAME - BROADNAME" << endl;
 	cout << "  → ";
 }
+
+/*						PRINT							*/
+
+void printCurrentTable()
+{
+
+}
+
 
 void printTitle(char * string)
 {
@@ -70,4 +129,17 @@ void centerString(char * s)
 		cout << " ";
 
 	cout << s << endl;
+}
+
+void noExistData()
+{
+	system("cls");
+	cout << endl << endl << endl << "────────────────────────────────────────────────────────────";
+	centerString("데이터가 존재하지 않습니다");
+	cout << "────────────────────────────────────────────────────────────" << endl;
+}
+
+void divisionLine()
+{
+	cout << "────────────────────────────────────────────────────────────" << endl;
 }
