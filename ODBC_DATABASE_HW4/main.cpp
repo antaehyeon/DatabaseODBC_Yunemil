@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// select - 1
 void main(int argc, char *argv[])
 {
 	if (DBConnect(&hEnv, &hDbc) == true)
@@ -23,6 +22,7 @@ void main(int argc, char *argv[])
 					SELECT();
 					break;
 				case 2: // INSERT
+					INSERT();
 					break;
 				case 3: // DELETE
 					break;
@@ -45,13 +45,12 @@ void main(int argc, char *argv[])
 	return;
 }
 
+/*						SELECT						*/
+
 void SELECT()
 {
 	printSelectTable();
 	cin >> selectTableNum;
-	string str;
-	char s[50];
-	char * ch;
 
 	switch (selectTableNum)
 	{
@@ -203,6 +202,7 @@ void SELECT()
 		default:
 			break;
 		}
+		break;
 	case 4: // 중첩질의
 		/*
 		SELECT	 BROADNAME
@@ -262,7 +262,6 @@ void SELECT()
 			divisionLine();
 		}
 		system("pause");
-
 		break;
 	case 6:
 		break;
@@ -271,38 +270,187 @@ void SELECT()
 	} // switch ( 모드에 따라서 )
 } // SELECT
 
+  /*						INSERT						*/
+
 void INSERT()
 {
+	insertTable();
 
-}
+	cin >> selectTableNum;
 
-void JOIN()
-{
-	printJoinList();
-	cin >> selectNumber;
-
-	switch (selectNumber)
+	switch (selectTableNum)
 	{
-	case 1:
-		printTitle("TVPNAME - BROADNAME JOIN");
-		sprintf((char*)query, "SELECT	 TVPNAME, BROADNAME\nFROM	 BROADCASTING_STATION AS E, TVPROGRAM AS D\nWHERE	 E.BNO = D.F_BNO_TV; ");
+	case 1: // BROADCASTING_STATION
+		printBCSExample();
+
+		getchar();
+		enterNo();
+		getline(cin, sNo);
+		cNo = (char*)sNo.c_str();
+
+		enterName();
+		getline(cin, sName);
+		cName = (char*)sName.c_str();
+
+		enterLocation();
+		getline(cin, sLocation);
+		cLocation = (char*)sLocation.c_str();
+
+		sprintf((char*)query, "INSERT INTO BROADCASTING_STATION VALUES(%s, '%s', '%s');", cNo, cName, cLocation);
 		SQLExecDirect(hStmt, query, SQL_NTS);
 
-		SQLBindCol(hStmt, 1, SQL_C_CHAR, TVPNAME, 20, NULL);
-		SQLBindCol(hStmt, 2, SQL_C_CHAR, BROADNAME, 20, NULL);
+		successMessage();
+		system("pause");
+		break;
+	case 2: // TV PROGRAM
+		printTvProgramExample();
 
-		cout << "TVPNAME				BROADNAME" << endl;
+		getchar();
+		enterNo();
+		getline(cin, sNo);
+		cNo = (char*)sNo.c_str();
 
-		while (SQLFetch(hStmt) != SQL_NO_DATA)
-		{
-			cout << TVPNAME << "\t\t" << BROADNAME << endl;
-		}
+		enterName();
+		getline(cin, sName);
+		cName = (char*)sName.c_str();
+
+		enterRating();
+		getline(cin, sRating);
+		cRating = (char*)sRating.c_str();
+
+		enterTime();
+		getline(cin, sTime);
+		cTime = (char*)sTime.c_str();
+
+		enterLocation();
+		getline(cin, sFno);
+		cFno = (char*)sFno.c_str();
+		
+		sprintf((char*)query, "INSERT INTO TVPROGRAM VALUES(%s, '%s', %s, '%s', %s);", cNo, cName, cRating, cTime, cFno);
+		SQLExecDirect(hStmt, query, SQL_NTS);
+
+		successMessage();
+		system("pause");
+		break;
+	case 3: // ENTERTAINMENT
+		printEntExample();
+
+		getchar();
+		enterNo();
+		getline(cin, sNo);
+		cNo = (char*)sNo.c_str();
+
+		enterName();
+		getline(cin, sName);
+		cName = (char*)sName.c_str();
+
+		enterLocation();
+		getline(cin, sLocation);
+		cLocation = (char*)sLocation.c_str();
+
+		sprintf((char*)query, "INSERT INTO ENTERTAINMENT VALUES(%s, '%s', '%s');", cNo, cName, cLocation);
+		SQLExecDirect(hStmt, query, SQL_NTS);
+
+		successMessage();
+		system("pause");
+		break;
+	case 4: // CAST
+		printCastExample();
+
+		getchar();
+		enterNo();
+		getline(cin, sNo);
+		cNo = (char*)sNo.c_str();
+
+		enterJob();
+		getline(cin, sJob);
+		cJob = (char*)sJob.c_str();
+
+		enterName();
+		getline(cin, sName);
+		cName = (char*)sName.c_str();
+
+		enterRating();
+		getline(cin, sAge);
+		cAge = (char*)sAge.c_str();
+
+		enterNo();
+		getline(cin, sFno);
+		cFno = (char*)sFno.c_str();
+
+		enterNo();
+		getline(cin, sFno2);
+		cFno2 = (char*)sFno2.c_str();
+
+		sprintf((char*)query, "INSERT INTO CAST_ VALUES(%s, '%s', '%s', %s, %s, %s);", cNo, cJob, cName, cAge, cFno, cFno2);
+		SQLExecDirect(hStmt, query, SQL_NTS);
+
+		successMessage();
+		system("pause");
+		break;
+	case 5: // EMPLOYEE
+		printEmployeeExample();
+
+		getchar();
+		enterNo();
+		getline(cin, sNo);
+		cNo = (char*)sNo.c_str();
+
+		enterName();
+		getline(cin, sName);
+		cName = (char*)sName.c_str();
+
+		enterSalaryData();
+		getline(cin, sSalary);
+		cSalary = (char*)sSalary.c_str();
+
+		enterNo();
+		getline(cin, sFno);
+		cFno = (char*)sFno.c_str();
+
+		sprintf((char*)query, "INSERT INTO EMPLOYEE VALUES(%s, '%s', %s, %s);", cNo, cName, cSalary, cFno);
+		SQLExecDirect(hStmt, query, SQL_NTS);
+
+		successMessage();
+		system("pause");
+		break;
+	case 6: // DEPENDENT
+		printDependentExample();
+
+		getchar();
+		enterNo();
+		getline(cin, sFno);
+		cFno = (char*)sFno.c_str();
+
+		enterName();
+		getline(cin, sName);
+		cName = (char*)sName.c_str();
+
+		enterWeddingDate();
+		getline(cin, sWedding);
+		cWedding = (char*)sWedding.c_str();
+
+		// 0 생략되는것 체크하기
+		sprintf((char*)query, "INSERT INTO DEPENDENT_ VALUES('%s', %s, %s);", cName, cWedding, cFno);
+		SQLExecDirect(hStmt, query, SQL_NTS);
+
+		successMessage();
 		system("pause");
 		break;
 	}
+}
+
+void DELETE_TABLE()
+{
 
 }
 
+void UPDATE()
+{
+
+}
+
+// 결과 값이 존재하지 않을경우 Error Message
 bool printNoExistMessage(int param)
 {
 	if (param == 0)

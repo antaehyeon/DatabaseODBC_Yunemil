@@ -16,15 +16,15 @@ void mainMenuPrint()
 	cout << " → ";
 }
 
-void printInputQueryMenu()
-{
-	printTitle("실행할 쿼리문을 입력하세요");
-	cout << " → ";
-}
+//void printInputQueryMenu()
+//{
+//	printTitle("실행할 쿼리문을 입력하세요");
+//	cout << " → ";
+//}
 
 void printSelectNumber()
 {
-	printTitle("수행할 기능을 입력하세요");
+	printTitle("Please enter the number");
 	cout << " 1.SELECT" << endl;
 	cout << " 2.INSERT" << endl;
 	cout << " 3.DELETE" << endl;
@@ -84,7 +84,7 @@ void enterEmployeeName()
 void insertTable()
 {
 	system("cls");
-	printTitle("어느 테이블에 데이터를 INSERT 하시겠습니까?");
+	printTitle("Please select a table for insert");
 	cout << " 1. BROADCASTING STATION" << endl;
 	cout << " 2. TV PROGRAM" << endl;
 	cout << " 3. ENTERTAINMENT" << endl;
@@ -94,6 +94,116 @@ void insertTable()
 	cout << "  → ";
 }
 
+void printBCSExample()
+{
+	system("cls");
+	printTitle("INSERT MODE - BROADCASTING_STATION");
+	cout << "-Example" << endl;
+	cout << "No : 1" << endl;
+	cout << "Name : SBS" << endl;
+	cout << "Location : Yeouigongwon-ro, Yeongdeungpo-gu, Seoul, Korea" << endl << endl;
+}
+
+void printTvProgramExample()
+{
+	system("cls");
+	printTitle("INSERT MODE - TV PROGRAM");
+	cout << "-Example" << endl;
+	cout << "No : 160224" << endl;
+	cout << "Name : 태양의후예" << endl;
+	cout << "Rating : 38.8" << endl;
+	cout << "Tv Time : (수,목) 오후 10:00" << endl;
+	cout << "BroadCasting Station No : 1" << endl << endl;
+}
+
+void printCastExample()
+{
+	system("cls");
+	printTitle("INSERT MODE - CAST");
+	cout << "-Example" << endl;
+	cout << "No : 710217" << endl;
+	cout << "Cast Job : 코미디언" << endl;
+	cout << "Name : 신동엽" << endl;
+	cout << "Cast Age : 46" << endl;
+	cout << "Entertainment No : 5" << endl;
+	cout << "In appearance TV Program : 30625" << endl << endl;
+}
+
+void printEntExample()
+{
+	system("cls");
+	printTitle("INSERT MODE - ENTERTAINMENT");
+	cout << "-Example" << endl;
+	cout << "No : 1" << endl;
+	cout << "Name : SM Ent" << endl;
+	cout << "Location : 648, Samseong-ro, Gangnam-gu, Seoul, Korea" << endl << endl;
+}
+
+void printEmployeeExample()
+{
+	system("cls");
+	printTitle("INSERT MODE - EMPLOYEE");
+	cout << "-Example" << endl;
+	cout << "No : 10295" << endl;
+	cout << "Name : 홍길동" << endl;
+	cout << "Salary : 3000000" << endl;
+	cout << "Belong to Broadcasting Station No : " << endl << endl;
+}
+
+void printDependentExample()
+{
+	system("cls");
+	printTitle("INSERT MODE - DEPENDENT");
+	cout << "-Example" << endl;
+	cout << "Employee No : 10295" << endl;
+	cout << "Name : 김건모" << endl;
+	cout << "Wedding anniversary : 081001" << endl << endl;
+}
+
+void enterNo()
+{
+	cout << "enter the No Data : ";
+}
+
+void enterName()
+{
+	cout << "enter the Name Data : ";
+}
+
+void enterLocation()
+{
+	cout << "enter the Location Data : ";
+}
+
+void enterRating()
+{
+	cout << "enter the Rating Data : ";
+}
+
+void enterTime()
+{
+	cout << "enter the Time Data : ";
+}
+
+void enterJob()
+{
+	cout << "enter the Job Data : ";
+}
+
+void enterAge()
+{
+	cout << "enter the Age Data : ";
+}
+
+void enterSalaryData()
+{
+	cout << "enter the Salary Data : ";
+}
+
+void enterWeddingDate()
+{
+	cout << "enter the Wedding Annviersary Data : ";
+}
 
 /*						JOIN							*/
 
@@ -111,7 +221,6 @@ void printCurrentTable()
 {
 
 }
-
 
 void printTitle(char * string)
 {
@@ -141,5 +250,15 @@ void noExistData()
 
 void divisionLine()
 {
-	cout << "────────────────────────────────────────────────────────────" << endl;
+	cout << "────────────────────────────────────────────────────────────";
+}
+
+void successMessage()
+{
+	system("cls");
+	cout << endl << endl << endl;
+	divisionLine();
+	centerString("SUCCESS");
+	divisionLine();
+	cout << endl;
 }

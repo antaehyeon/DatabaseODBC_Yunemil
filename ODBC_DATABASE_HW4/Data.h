@@ -8,7 +8,6 @@
 using namespace std;
 
 /*						DATA							*/
-
 // BROADCASTING_STATION
 SQLINTEGER BNO;
 SQLCHAR BROADNAME[20], BROADLOCATION[100];
@@ -44,13 +43,36 @@ int selectTableNum = 0;
 int selectFunctionNumber = 0;
 int selectNumber = 0;
 
-string querySentence;
-SQLINTEGER COUNTROW;
+string str;
+char * ch;
+
+string sNo;
+string sName;
+string sLocation;
+string sRating;
+string sTime;
+string sFno;
+string sFno2;
+string sAge;
+string sJob;
+string sSalary;
+string sWedding;
+
+char * cNo;
+char * cName;
+char * cLocation;
+char * cRating;
+char * cTime;
+char * cFno;
+char * cFno2;
+char * cAge;
+char * cJob;
+char * cSalary;
+char * cWedding;
 
 /*						FUNCTION							*/
-
 void mainMenuPrint();
-void printInputQueryMenu();
+//void printInputQueryMenu();
 void printSelectNumber();
 void centerString(char * s);
 void printTitle(char * string);
@@ -64,6 +86,23 @@ void divisionLine();
 void pirntSalarySelectTable();
 void enterSalary();
 void enterEmployeeName();
+void insertTable();
+void printBCSExample();
+void enterNo();
+void enterName();
+void enterLocation();
+void successMessage();
+void printTvProgramExample();
+void enterTime();
+void enterRating();
+void printEntExample();
+void printCastExample();
+void enterAge();
+void enterJob();
+void printEmployeeExample();
+void enterSalaryData();
+void printDependentExample();
+void enterWeddingDate();
 
 bool DBConnect(SQLHENV * hEnv, SQLHDBC * hDbc);		// Connect to the SQL Server
 void DBDisconnect(SQLHENV * hEnv, SQLHDBC * hDbc);	// Disconnect from the SQL Server
