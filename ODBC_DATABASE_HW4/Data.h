@@ -103,6 +103,9 @@ void printEmployeeExample();
 void enterSalaryData();
 void printDependentExample();
 void enterWeddingDate();
+void insertErrorMessage();
+void damageErrorMessage();
+void enterBroadcastingStationName();
 
 bool DBConnect(SQLHENV * hEnv, SQLHDBC * hDbc);		// Connect to the SQL Server
 void DBDisconnect(SQLHENV * hEnv, SQLHDBC * hDbc);	// Disconnect from the SQL Server

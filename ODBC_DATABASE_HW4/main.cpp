@@ -49,6 +49,7 @@ void main(int argc, char *argv[])
 
 void SELECT()
 {
+	bool dataExistCheck = false;
 	printSelectTable();
 	cin >> selectTableNum;
 
@@ -83,12 +84,27 @@ void SELECT()
 
 		cout << endl;
 		divisionLine();
+
+		// 데이터가 존재하지 않을시
+		//if (SQLFetch(hStmt) == SQL_NO_DATA)
+		//{
+		//	noExistData();
+		//	system("pause");
+		//	break;
+		//}
+
 		while (SQLFetch(hStmt) != SQL_NO_DATA)
 		{
+			dataExistCheck = true; // 결과를 체크하기 위한 BOOL
 			cout << "TV Program Name : " << TVPNAME << endl;
 			cout << "Rating : " << RATING << endl;
 			divisionLine();
 		}
+
+		// 결과가 없을 시 
+		if (!dataExistCheck) { noExistData(); }
+
+
 		system("pause");
 		break;
 	case 2: // 배우의 직업과 나이 조회
@@ -106,17 +122,20 @@ void SELECT()
 		SQLBindCol(hStmt, 2, SQL_C_CHAR, CASTJOB, 8, NULL);
 		SQLBindCol(hStmt, 3, SQL_INTEGER, &CASTAGE, 4, NULL);
 
-		// 데이터가 존재하지 않을 시
-
 		cout << endl;
 		divisionLine();
 		while (SQLFetch(hStmt) != SQL_NO_DATA)
 		{
+			dataExistCheck = true; // 결과를 체크하기 위한 BOOL
 			cout << "Cast Name : " << CASTNAME << endl;
 			cout << "Cast Job : " << CASTJOB << endl;
 			cout << "Cast Age : " << CASTAGE << endl;
 			divisionLine();
 		}
+
+		// 결과가 없을 시 
+		if (!dataExistCheck) { noExistData(); }
+		
 		system("pause");
 
 		break;
@@ -145,10 +164,15 @@ void SELECT()
 			divisionLine();
 			while (SQLFetch(hStmt) != SQL_NO_DATA)
 			{
+				dataExistCheck = true; // 결과를 체크하기 위한 BOOL
 				cout << "Employee Name : " << EMPNAME << endl;
 				cout << "Employee Salary : " << SALARY << endl;
 				divisionLine();
 			}
+
+			// 결과가 없을 시 
+			if (!dataExistCheck) { noExistData(); }
+			
 			system("pause");
 			break;
 		case 2: // 입력된 값 이상 급여 검색
@@ -169,10 +193,15 @@ void SELECT()
 			divisionLine();
 			while (SQLFetch(hStmt) != SQL_NO_DATA)
 			{
+				dataExistCheck = true; // 결과를 체크하기 위한 BOOL
 				cout << "Employee Name : " << EMPNAME << endl;
 				cout << "Employee Salary : " << SALARY << endl;
 				divisionLine();
 			}
+
+			// 결과가 없을 시 
+			if (!dataExistCheck) { noExistData(); }
+			
 			system("pause");
 			break;
 		case 3: // 입력된 값 이하 급여 검색
@@ -193,10 +222,15 @@ void SELECT()
 			divisionLine();
 			while (SQLFetch(hStmt) != SQL_NO_DATA)
 			{
+				dataExistCheck = true; // 결과를 체크하기 위한 BOOL
 				cout << "Employee Name : " << EMPNAME << endl;
 				cout << "Employee Salary : " << SALARY << endl;
 				divisionLine();
 			}
+
+			// 결과가 없을 시 
+			if (!dataExistCheck) { noExistData(); }
+			
 			system("pause");
 			break;
 		default:
@@ -205,11 +239,11 @@ void SELECT()
 		break;
 	case 4: // 중첩질의
 		/*
-		SELECT	 BROADNAME
-		FROM	 BROADCASTING_STATION
-		WHERE	 BNO = ( SELECT F_BNO_TV
-						 FROM TVPROGRAM
-						 WHERE TVPNAME = 'TV프로그램 이름');
+			SELECT	 BROADNAME
+			FROM	 BROADCASTING_STATION
+			WHERE	 BNO = ( SELECT F_BNO_TV
+							 FROM TVPROGRAM
+							 WHERE TVPNAME = 'TV프로그램 이름');
 		*/
 		enterTvProgramName();
 	
@@ -227,17 +261,22 @@ void SELECT()
 		divisionLine();
 		while (SQLFetch(hStmt) != SQL_NO_DATA)
 		{
+			dataExistCheck = true; // 결과를 체크하기 위한 BOOL
 			cout << "Broadcasting station corresponding to the " << ch << endl;
 			cout << "Broadcasting station Name : " << BROADNAME << endl;
 			divisionLine();
 		}
+
+		// 결과가 없을 시 
+		if (!dataExistCheck) { noExistData(); }
+
 		system("pause");
 		break;
-	case 5:
+	case 5: // 해당 직원의 배우자와 결혼기념일 출력
 		/*
-		SELECT EMPNAME, DEPNAME, WEDDINGANNVIERSARY
-		FROM EMPLOYEE AS E, DEPENDENT_ AS D
-		WHERE E.EMPNO = D.F_EMPNO AND (E.EMPNAME = '직원이름');
+			SELECT EMPNAME, DEPNAME, WEDDINGANNVIERSARY
+			FROM EMPLOYEE AS E, DEPENDENT_ AS D
+			WHERE E.EMPNO = D.F_EMPNO AND (E.EMPNAME = '직원이름');
 		*/
 		enterEmployeeName();
 
@@ -257,13 +296,61 @@ void SELECT()
 		divisionLine();
 		while (SQLFetch(hStmt) != SQL_NO_DATA)
 		{
+			dataExistCheck = true; // 결과를 체크하기 위한 BOOL
 			cout << EMPNAME << " husband is " << DEPNAME << endl;
 			cout << "The wedding anniversary of the couple :  " << WEDDINGANNVIERSARY << endl;
 			divisionLine();
 		}
+
+		// 결과가 없을 시 
+		if (!dataExistCheck) { noExistData(); }
+		
 		system("pause");
 		break;
-	case 6:
+	case 6: // '어떤' 방송국의 직원의 배우자와 결혼기념일 조회
+		/*
+			SELECT BROADNAME, EMPNAME, DEPNAME, WEDDINGANNVIERSARY
+			FROM BROADCASTING_STATION AS B, EMPLOYEE AS E, DEPENDENT_ AS D
+			WHERE B.BNO = E.F_BNO_EMP AND E.EMPNO = D.F_EMPNO AND B.BROADNAME = '방송국 이름'
+		*/
+		enterBroadcastingStationName();
+
+		getchar();
+		getline(cin, str);
+		ch = (char*)str.c_str();
+		cin.clear();
+
+		sprintf((char*)query, "SELECT BROADNAME, EMPNAME, DEPNAME, WEDDINGANNVIERSARY FROM BROADCASTING_STATION AS B, EMPLOYEE AS E, DEPENDENT_ AS D WHERE B.BNO = E.F_BNO_EMP AND E.EMPNO = D.F_EMPNO AND B.BROADNAME = '%s'", ch);
+
+		SQLExecDirect(hStmt, query, SQL_NTS);
+		SQLBindCol(hStmt, 1, SQL_C_CHAR, BROADNAME, 20, NULL);
+		SQLBindCol(hStmt, 2, SQL_C_CHAR, EMPNAME, 8, NULL);
+		SQLBindCol(hStmt, 3, SQL_C_CHAR, DEPNAME, 10, NULL);
+		SQLBindCol(hStmt, 4, SQL_C_CHAR, WEDDINGANNVIERSARY, 10, NULL);
+
+		printTitle("RESULT");
+		cout << endl;
+		divisionLine();
+
+		cout << " List spouse and wedding annviersary of all employee worked in " << BROADNAME << endl;
+		divisionLine();
+
+		while (SQLFetch(hStmt) != SQL_NO_DATA)
+		{
+			dataExistCheck = true; // 결과를 체크하기 위한 BOOL
+
+			cout << endl << " Employee : " << EMPNAME << endl;
+			cout << " Spouse : " << DEPNAME << endl;
+			cout << " Wedding Annviersary : " << WEDDINGANNVIERSARY << endl;
+
+			divisionLine();
+		}
+		cout << endl;
+
+		// 결과가 없을 시 
+		if (!dataExistCheck) { noExistData(); }
+
+		system("pause");
 		break;
 	default:
 		break;
@@ -274,6 +361,8 @@ void SELECT()
 
 void INSERT()
 {
+	int insertResultCode = 0;
+
 	insertTable();
 
 	cin >> selectTableNum;
@@ -297,9 +386,13 @@ void INSERT()
 		cLocation = (char*)sLocation.c_str();
 
 		sprintf((char*)query, "INSERT INTO BROADCASTING_STATION VALUES(%s, '%s', '%s');", cNo, cName, cLocation);
-		SQLExecDirect(hStmt, query, SQL_NTS);
+		insertResultCode = SQLExecDirect(hStmt, query, SQL_NTS);
 
-		successMessage();
+		// INSERT 결과에 따른 메세지 출력
+		if (insertResultCode == 0) { successMessage(); }
+		else if (insertResultCode == -1) { insertErrorMessage(); }
+		else { damageErrorMessage(); }
+
 		system("pause");
 		break;
 	case 2: // TV PROGRAM
@@ -327,9 +420,13 @@ void INSERT()
 		cFno = (char*)sFno.c_str();
 		
 		sprintf((char*)query, "INSERT INTO TVPROGRAM VALUES(%s, '%s', %s, '%s', %s);", cNo, cName, cRating, cTime, cFno);
-		SQLExecDirect(hStmt, query, SQL_NTS);
+		insertResultCode = SQLExecDirect(hStmt, query, SQL_NTS);
 
-		successMessage();
+		// INSERT 결과에 따른 메세지 출력
+		if (insertResultCode == 0) { successMessage(); }
+		else if (insertResultCode == -1) { insertErrorMessage(); }
+		else { damageErrorMessage(); }
+
 		system("pause");
 		break;
 	case 3: // ENTERTAINMENT
@@ -349,9 +446,13 @@ void INSERT()
 		cLocation = (char*)sLocation.c_str();
 
 		sprintf((char*)query, "INSERT INTO ENTERTAINMENT VALUES(%s, '%s', '%s');", cNo, cName, cLocation);
-		SQLExecDirect(hStmt, query, SQL_NTS);
+		insertResultCode = SQLExecDirect(hStmt, query, SQL_NTS);
 
-		successMessage();
+		// INSERT 결과에 따른 메세지 출력
+		if (insertResultCode == 0) { successMessage(); }
+		else if (insertResultCode == -1) { insertErrorMessage(); }
+		else { damageErrorMessage(); }
+
 		system("pause");
 		break;
 	case 4: // CAST
@@ -383,9 +484,13 @@ void INSERT()
 		cFno2 = (char*)sFno2.c_str();
 
 		sprintf((char*)query, "INSERT INTO CAST_ VALUES(%s, '%s', '%s', %s, %s, %s);", cNo, cJob, cName, cAge, cFno, cFno2);
-		SQLExecDirect(hStmt, query, SQL_NTS);
+		insertResultCode = SQLExecDirect(hStmt, query, SQL_NTS);
 
-		successMessage();
+		// INSERT 결과에 따른 메세지 출력
+		if (insertResultCode == 0) { successMessage(); }
+		else if (insertResultCode == -1) { insertErrorMessage(); }
+		else { damageErrorMessage(); }
+
 		system("pause");
 		break;
 	case 5: // EMPLOYEE
@@ -409,9 +514,13 @@ void INSERT()
 		cFno = (char*)sFno.c_str();
 
 		sprintf((char*)query, "INSERT INTO EMPLOYEE VALUES(%s, '%s', %s, %s);", cNo, cName, cSalary, cFno);
-		SQLExecDirect(hStmt, query, SQL_NTS);
+		insertResultCode = SQLExecDirect(hStmt, query, SQL_NTS);
 
-		successMessage();
+		// INSERT 결과에 따른 메세지 출력
+		if (insertResultCode == 0) { successMessage(); }
+		else if (insertResultCode == -1) { insertErrorMessage(); }
+		else { damageErrorMessage(); }
+
 		system("pause");
 		break;
 	case 6: // DEPENDENT
@@ -432,9 +541,13 @@ void INSERT()
 
 		// 0 생략되는것 체크하기
 		sprintf((char*)query, "INSERT INTO DEPENDENT_ VALUES('%s', %s, %s);", cName, cWedding, cFno);
-		SQLExecDirect(hStmt, query, SQL_NTS);
+		insertResultCode = SQLExecDirect(hStmt, query, SQL_NTS);
 
-		successMessage();
+		// INSERT 결과에 따른 메세지 출력
+		if (insertResultCode == 0) { successMessage(); }
+		else if (insertResultCode == -1) { insertErrorMessage(); }
+		else { damageErrorMessage(); }
+
 		system("pause");
 		break;
 	}

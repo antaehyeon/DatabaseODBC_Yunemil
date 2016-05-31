@@ -37,13 +37,21 @@ void printSelectNumber()
 
 void printSelectTable()
 {
+	// 1. TV프로그램의 시청률 조회
+	// 2. 배우의 나이와 직업 조회
+	// 3. 방송국 직원의 월급 조회 (이름, 해당급여보다 높은, 해당급여보다 낮은)
+	// 4. TV프로그램 방송국 조회
+	// 5. 직원의 결혼기념일 조회
+	// 6. 방송국 모든 직원의 결혼기념일 조회
 	system("cls");
 	printTitle("Please enter the number");
 	cout << " 1. Search TV program rating" << endl;
 	cout << " 2. Search actor age and job" << endl;
 	cout << " 3. Search employees' salary of broadcasting" << endl;
 	cout << " 4. Search Broadcasting station corresponding to the TV program" << endl;
-	cout << "  → ";
+	cout << " 5. Search wedding anniversary of EMPLOYEE" << endl;
+	cout << " 6. Search wedding anniversary of staff of the broadcasting station" << endl;
+    cout << "  → ";
 }
 
 void pirntSalarySelectTable()
@@ -51,8 +59,8 @@ void pirntSalarySelectTable()
 	system("cls");
 	printTitle("Please enter the number");
 	cout << " 1. Employee name" << endl;
-	cout << " 2. Standard salary or more" << endl;
-	cout << " 3. Standard salary below " << endl;
+	cout << " 2. Select all EMPLOYEE paid above specific salary" << endl;
+	cout << " 3. Select all EMPLOYEE paid below specific salary " << endl;
 	cout << "  → ";
 }
 
@@ -77,6 +85,12 @@ void enterSalary()
 void enterEmployeeName()
 {
 	cout << "Enter the Employee Name" << endl;
+	cout << "  → ";
+}
+
+void enterBroadcastingStationName()
+{
+	cout << "Enter the Broadcasting Station Name" << endl;
 	cout << "  → ";
 }
 
@@ -244,7 +258,7 @@ void noExistData()
 {
 	system("cls");
 	cout << endl << endl << endl << "────────────────────────────────────────────────────────────";
-	centerString("데이터가 존재하지 않습니다");
+	centerString("NO EXISTS DATA !!!");
 	cout << "────────────────────────────────────────────────────────────" << endl;
 }
 
@@ -259,6 +273,27 @@ void successMessage()
 	cout << endl << endl << endl;
 	divisionLine();
 	centerString("SUCCESS");
+	divisionLine();
+	cout << endl;
+}
+
+void insertErrorMessage()
+{
+	system("cls");
+	cout << endl << endl << endl;
+	divisionLine();
+	centerString("INSERT ERROR");
+
+	divisionLine();
+	cout << endl;
+}
+
+void damageErrorMessage()
+{
+	system("cls");
+	cout << endl << endl << endl;
+	divisionLine();
+	centerString("DAMAGE ERROR !!! - Please Check your Program");
 	divisionLine();
 	cout << endl;
 }
