@@ -219,15 +219,74 @@ void enterWeddingDate()
 	cout << "enter the Wedding Annviersary Data : ";
 }
 
-/*						JOIN							*/
+/*						DELETE							*/
 
-void printJoinList()
+void printDeleteMenu()
 {
 	system("cls");
-	printTitle("JOIN 할 목록을 선택하세요");
-	cout << " 1. TVPNAME - BROADNAME" << endl;
+	printTitle("Please enter the number");
+	cout << " 1. Delete a Broadcasting Station" << endl;
+	cout << " 2. Lay off Employee" << endl;
+	cout << " 3. Delete a TV program" << endl;
 	cout << "  → ";
 }
+
+void enterStationNameForDelete()
+{
+	cout << "Enter the Broadcasting Station Number : ";
+}
+
+void enterEmployeeNumForDelete()
+{
+	cout << "Enter the Employee Number : ";
+}
+
+void enterTvProgramNumForDelete()
+{
+	cout << "Enter the TV Program Number : ";
+}
+
+/*						UPDATE							*/
+void printUpdateMenu()
+{
+	system("cls");
+	printTitle("Please enter the number");
+	cout << " 1. Update the all data of selected Table" << endl;
+	cout << " 2. Update the Broadcasting Station name" << endl;
+	cout << " 3. Update TV program rating" << endl;
+	cout << " 4. Update Cast age" << endl;
+	cout << "  → ";
+}
+
+void updateTable()
+{
+	system("cls");
+	printTitle("Please select a table for update");
+	cout << " 1. BROADCASTING STATION" << endl;
+	cout << " 2. TV PROGRAM" << endl;
+	cout << " 3. ENTERTAINMENT" << endl;
+	cout << " 4. CAST" << endl;
+	cout << " 5. EMPLOYEE" << endl;
+	cout << " 6. DEPENDENT" << endl;
+	cout << "  → ";
+}
+
+void enterStationNameForUpdate()
+{
+	cout << "Enter the Broadcasting Station Name : ";
+}
+
+void enterStationName()
+{
+	cout << "Enter the target(BROADNAME) to be Updated : ";
+}
+
+void whatReplacement()
+{
+	cout << "Enter the replacement : ";
+}
+
+
 
 /*						PRINT							*/
 
@@ -277,12 +336,12 @@ void successMessage()
 	cout << endl;
 }
 
-void insertErrorMessage()
+void errorMessage()
 {
 	system("cls");
 	cout << endl << endl << endl;
 	divisionLine();
-	centerString("INSERT ERROR");
+	centerString("ERROR");
 
 	divisionLine();
 	cout << endl;

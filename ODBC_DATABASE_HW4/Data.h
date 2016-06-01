@@ -72,12 +72,10 @@ char * cWedding;
 
 /*						FUNCTION							*/
 void mainMenuPrint();
-//void printInputQueryMenu();
 void printSelectNumber();
 void centerString(char * s);
 void printTitle(char * string);
 void printSelectTable();
-void printJoinList();
 void enterTvProgramName();
 void enterCastName();
 void noExistData();
@@ -92,6 +90,7 @@ void enterNo();
 void enterName();
 void enterLocation();
 void successMessage();
+void errorMessage();
 void printTvProgramExample();
 void enterTime();
 void enterRating();
@@ -103,13 +102,22 @@ void printEmployeeExample();
 void enterSalaryData();
 void printDependentExample();
 void enterWeddingDate();
-void insertErrorMessage();
 void damageErrorMessage();
 void enterBroadcastingStationName();
+void printDeleteMenu();
+void enterStationNameForDelete();
+void enterEmployeeNumForDelete();
+void enterTvProgramNumForDelete();
+void printUpdateMenu();
+void updateTable();
+void enterStationNameForUpdate();
+void enterStationName();
+void whatReplacement();
 
 bool DBConnect(SQLHENV * hEnv, SQLHDBC * hDbc);		// Connect to the SQL Server
 void DBDisconnect(SQLHENV * hEnv, SQLHDBC * hDbc);	// Disconnect from the SQL Server
 
 void SELECT();
 void INSERT();
+void DELETE_TABLE();
 void JOIN();

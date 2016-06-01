@@ -25,6 +25,7 @@ void main(int argc, char *argv[])
 					INSERT();
 					break;
 				case 3: // DELETE
+					DELETE_TABLE();
 					break;
 				case 4: // UPDATE
 					break;
@@ -390,7 +391,7 @@ void INSERT()
 
 		// INSERT 결과에 따른 메세지 출력
 		if (insertResultCode == 0) { successMessage(); }
-		else if (insertResultCode == -1) { insertErrorMessage(); }
+		else if (insertResultCode == -1) { errorMessage(); }
 		else { damageErrorMessage(); }
 
 		system("pause");
@@ -424,7 +425,7 @@ void INSERT()
 
 		// INSERT 결과에 따른 메세지 출력
 		if (insertResultCode == 0) { successMessage(); }
-		else if (insertResultCode == -1) { insertErrorMessage(); }
+		else if (insertResultCode == -1) { errorMessage(); }
 		else { damageErrorMessage(); }
 
 		system("pause");
@@ -450,7 +451,7 @@ void INSERT()
 
 		// INSERT 결과에 따른 메세지 출력
 		if (insertResultCode == 0) { successMessage(); }
-		else if (insertResultCode == -1) { insertErrorMessage(); }
+		else if (insertResultCode == -1) { errorMessage(); }
 		else { damageErrorMessage(); }
 
 		system("pause");
@@ -488,7 +489,7 @@ void INSERT()
 
 		// INSERT 결과에 따른 메세지 출력
 		if (insertResultCode == 0) { successMessage(); }
-		else if (insertResultCode == -1) { insertErrorMessage(); }
+		else if (insertResultCode == -1) { errorMessage(); }
 		else { damageErrorMessage(); }
 
 		system("pause");
@@ -518,7 +519,7 @@ void INSERT()
 
 		// INSERT 결과에 따른 메세지 출력
 		if (insertResultCode == 0) { successMessage(); }
-		else if (insertResultCode == -1) { insertErrorMessage(); }
+		else if (insertResultCode == -1) { errorMessage(); }
 		else { damageErrorMessage(); }
 
 		system("pause");
@@ -545,7 +546,7 @@ void INSERT()
 
 		// INSERT 결과에 따른 메세지 출력
 		if (insertResultCode == 0) { successMessage(); }
-		else if (insertResultCode == -1) { insertErrorMessage(); }
+		else if (insertResultCode == -1) { errorMessage(); }
 		else { damageErrorMessage(); }
 
 		system("pause");
@@ -555,12 +556,107 @@ void INSERT()
 
 void DELETE_TABLE()
 {
+	int deleteResultCode = 0;
 
+	printDeleteMenu();
+	cin >> selectTableNum;
+
+	switch (selectTableNum)
+	{
+	case 1: // 1. 방송국 삭제하기
+		getchar();
+		enterStationNameForDelete();
+		getline(cin, sNo);
+		cNo = (char*)sNo.c_str();
+
+		sprintf((char*)query, "DELETE FROM BROADCASTING_STATION WHERE BNO = '%s';", cNo);
+		deleteResultCode = SQLExecDirect(hStmt, query, SQL_NTS);
+
+		if (deleteResultCode == 0) { successMessage(); }
+		else					   { errorMessage(); }
+
+		system("pause");
+		break;
+	case 2: // 2. 직원 해고하기
+		getchar();
+		enterEmployeeNumForDelete();
+		getline(cin, sNo);
+		cNo = (char*)sNo.c_str();
+
+		sprintf((char*)query, "DELETE FROM EMPLOYEE WHERE EMPNO = '%s';", cNo);
+		deleteResultCode = SQLExecDirect(hStmt, query, SQL_NTS);
+
+		if (deleteResultCode == 0) { successMessage(); }
+		else					   { errorMessage(); }
+
+		system("pause");
+		break;
+	case 3: // 3. TV프로그램 폐지하기
+		getchar();
+		enterTvProgramNumForDelete();
+		getline(cin, sNo);
+		cNo = (char*)sNo.c_str();
+
+		sprintf((char*)query, "DELETE FROM TVPROGRAM WHERE TVPNO = '%s';", cNo);
+		deleteResultCode = SQLExecDirect(hStmt, query, SQL_NTS);
+
+		if (deleteResultCode == 0) { successMessage(); }
+		else					   { errorMessage(); }
+
+		system("pause");
+		break;
+	}
 }
 
 void UPDATE()
 {
+	// 전체 수정하는 기능을 만들고 ( 1~6 )
+	// NULL 이 아닌 값 위주로 수정하는 기능을 만들자
+	// 1. 방송국 이름 수정하기
+	// 2. TV프로그램 시청률 수정하기
+	// 3. 출연진 나이 수정하기
 
+	int updateResultCode = 0;
+
+	printUpdateMenu();
+	cin >> selectTableNum;
+
+	switch (selectTableNum)
+	{
+	case 1:
+		updateTable();
+		cin >> selectTableNum;
+		switch (selectNumber)
+		{
+
+		}
+		break;
+	case 2: // 방송국 이름 수정하기
+
+		// 원래정보를 입력받고
+		getchar();
+		enterStationName();
+		getline(cin, sName);
+		cName = (char*)sName.c_str();
+
+		// 바꿀내용을 입력받는다
+		getchar();
+		whatReplacement();
+		getline(cin, str);
+
+		
+
+
+			
+
+
+
+		break;
+	case 3: // TV프로그램 시청률 수정하기
+		break;
+	case 4: // 출연진 나이 수정하기
+		break;
+	}
 }
 
 // 결과 값이 존재하지 않을경우 Error Message
