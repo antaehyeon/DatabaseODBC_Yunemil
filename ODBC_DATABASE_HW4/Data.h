@@ -41,7 +41,7 @@ SQLHSTMT hStmt;				// Statement Handle#pragma once
 int mode = 0;
 int selectTableNum = 0;
 int selectFunctionNumber = 0;
-int selectNumber = 0;
+char selectMenu;
 
 string str;
 char * ch;
@@ -57,6 +57,8 @@ string sAge;
 string sJob;
 string sSalary;
 string sWedding;
+string sRep;
+string sSD;
 
 char * cNo;
 char * cName;
@@ -69,6 +71,8 @@ char * cAge;
 char * cJob;
 char * cSalary;
 char * cWedding;
+char * cRep;
+char * cSD;
 
 /*						FUNCTION							*/
 void mainMenuPrint();
@@ -80,6 +84,12 @@ void enterTvProgramName();
 void enterCastName();
 void noExistData();
 bool printNoExistMessage(int param);
+void selectBroadcastingStation();
+void selectCast();
+void selectDependent();
+void selectEmployee();
+void selectEnt();
+void selectTvProgram();
 void divisionLine();
 void pirntSalarySelectTable();
 void enterSalary();
@@ -113,6 +123,47 @@ void updateTable();
 void enterStationNameForUpdate();
 void enterStationName();
 void whatReplacement();
+void enterTvProgramNum();
+void enterCastNameForUpdate();
+
+void setUpdateInfoOfStation();
+void setUpdateInfoOfCast();
+void setUpdateInfoOfDependent();
+void setUpdateInfoOfEmployee();
+void setUpdateInfoOfEntertainment();
+void setUpdateInfoOfTvProgram();
+
+void enterBNO();
+void enterBROADNAME();
+void enterLOCATIONForEnt();
+void enterTVPNO();
+void enterTVPNAME();
+void enterRATING();
+void enterTVPTIME();
+void enterForeignKeyOfBNO();
+void updateAllOfStation();
+void updateAllOfCast();
+void updateAllOfDependent();
+void updateAllOfEmployee();
+void updateAllOfEnt();
+void updateAllOfTvProgram();
+void enterCASTNO();
+void enterCASTJOB();
+void enterCASTNAME();
+void enterCASTAGE();
+void enterForeignKeyOfENTNO();
+void enterForeignKeyOfTVPNO();
+void enterDEPNAME();
+void enterWEDDINGANNIVERSARY();
+void enterForeignKeyOfEMPNO();
+void enterEMPNO();
+void enterEMPNAME();
+void enterSALARY();
+void enterForeignKeyOfBNOEMP();
+void enterENTNO();
+void enterENTNAME();
+void printNewInputData();
+
 
 bool DBConnect(SQLHENV * hEnv, SQLHDBC * hDbc);		// Connect to the SQL Server
 void DBDisconnect(SQLHENV * hEnv, SQLHDBC * hDbc);	// Disconnect from the SQL Server
@@ -120,4 +171,6 @@ void DBDisconnect(SQLHENV * hEnv, SQLHDBC * hDbc);	// Disconnect from the SQL Se
 void SELECT();
 void INSERT();
 void DELETE_TABLE();
+void UPDATE();
+void SHOW();
 void JOIN();

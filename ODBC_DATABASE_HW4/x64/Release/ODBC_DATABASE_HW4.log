@@ -1,0 +1,134 @@
+﻿  main.cpp
+main.cpp(89): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(89): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(121): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(121): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(161): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(161): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(199): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(199): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(237): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(237): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(280): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(280): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(315): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(315): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(352): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(352): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(88): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(120): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(160): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(198): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(236): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(279): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(314): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(350): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(417): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(417): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(452): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(452): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(479): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(479): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(518): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(518): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(549): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(549): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(576): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(576): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(416): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(451): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(478): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(517): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(548): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(575): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(605): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(605): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(620): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(620): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(635): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(635): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(604): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(619): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(634): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(690): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(690): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(734): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(734): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(766): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(766): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(802): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(802): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(834): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(834): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(874): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(874): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(900): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(900): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(921): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(921): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(942): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(942): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(689): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(733): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(765): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(801): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(833): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(873): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(899): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(920): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(941): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(982): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(982): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(981): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(1006): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(1006): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(1005): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(1031): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(1031): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(1030): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(1054): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(1054): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(1053): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(1080): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(1080): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(1079): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+main.cpp(1105): error C2664: 'SQLRETURN SQLExecDirectW(SQLHSTMT,SQLWCHAR *,SQLINTEGER)': 인수 2을(를) 'SQLCHAR [256]'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  main.cpp(1105): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+main.cpp(1104): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+  Mssql.cpp
+Mssql.cpp(30): error C2664: 'SQLRETURN SQLConnectW(SQLHDBC,SQLWCHAR *,SQLSMALLINT,SQLWCHAR *,SQLSMALLINT,SQLWCHAR *,SQLSMALLINT)': 인수 2을(를) 'SQLCHAR *'에서 'SQLWCHAR *'(으)로 변환할 수 없습니다.
+  Mssql.cpp(30): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+  Print.cpp
+Print.cpp(515): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.

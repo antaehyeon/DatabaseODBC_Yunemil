@@ -29,7 +29,8 @@ void printSelectNumber()
 	cout << " 2.INSERT" << endl;
 	cout << " 3.DELETE" << endl;
 	cout << " 4.UPDATE" << endl;
-	cout << " 5.EXIT" << endl;
+	cout << " 5.SHOW" << endl;
+	cout << " 6.EXIT" << endl;
 	cout << "  ⊥ ";
 }
 
@@ -48,9 +49,9 @@ void printSelectTable()
 	cout << " 1. Search TV program rating" << endl;
 	cout << " 2. Search actor age and job" << endl;
 	cout << " 3. Search employees' salary of broadcasting" << endl;
-	cout << " 4. Search Broadcasting station corresponding to the TV program" << endl;
+	cout << " 4. Search broadcasting station which broadcasts the TV program" << endl;
 	cout << " 5. Search wedding anniversary of EMPLOYEE" << endl;
-	cout << " 6. Search wedding anniversary of staff of the broadcasting station" << endl;
+	cout << " 6. Search wedding anniversary of all the employees in the broadcasting station." << endl;
     cout << "  ⊥ ";
 }
 
@@ -263,29 +264,235 @@ void updateTable()
 	system("cls");
 	printTitle("Please select a table for update");
 	cout << " 1. BROADCASTING STATION" << endl;
-	cout << " 2. TV PROGRAM" << endl;
-	cout << " 3. ENTERTAINMENT" << endl;
-	cout << " 4. CAST" << endl;
-	cout << " 5. EMPLOYEE" << endl;
-	cout << " 6. DEPENDENT" << endl;
+	cout << " 2. CAST" << endl;
+	cout << " 3. DEPENDENT" << endl;
+	cout << " 4. EMPLOYEE" << endl;
+	cout << " 5. ENTERTAINMENT" << endl;
+	cout << " 6. TVPROGRAM" << endl;
 	cout << "  ⊥ ";
 }
 
 void enterStationNameForUpdate()
 {
-	cout << "Enter the Broadcasting Station Name : ";
+	cout << "Input the BROADNAME that you want to update in the tuple : ";
 }
 
 void enterStationName()
 {
-	cout << "Enter the target(BROADNAME) to be Updated : ";
+	cout << "Input the BROADNAME that you want to update in the tuple : ";
 }
 
 void whatReplacement()
 {
-	cout << "Enter the replacement : ";
+	cout << "Enter the new data : ";
 }
 
+void enterTvProgramNum()
+{
+	cout << "Input the TVPNO that you want to update in the tuple : ";
+}
+
+void enterCastNameForUpdate()
+{
+	cout << "Input the CASTNAME that you want to update in the tuple : ";
+}
+
+
+
+void setUpdateInfoOfStation()
+{
+	cout << "Input the BNO that you want to update in the tuple : ";
+}
+
+void setUpdateInfoOfCast()
+{
+	cout << "Input the CASTNO that you want to update in the tuple : ";
+}
+
+void setUpdateInfoOfDependent()
+{
+	cout << "Input the DEPNAME that you want to update in the tuple : ";
+}
+
+void setUpdateInfoOfEmployee()
+{
+	cout << "Input the EMPNO that you want to update in the tuple : ";
+}
+
+void setUpdateInfoOfEntertainment()
+{
+	cout << "Input the ENTNO that you want to update in the tuple : ";
+}
+
+void setUpdateInfoOfTvProgram()
+{
+	cout << "Input the TVPNO that you want to update in the tuple : ";
+}
+
+
+
+void enterBNO()
+{
+	cout << "Enter the No. of Broadcasting Station : ";
+}
+
+void enterBROADNAME()
+{
+	cout << "Enter the name of Broadcasting Station : ";
+}
+
+void enterLOCATION()
+{
+	cout << "Enter the location of Broadcasting Station : ";
+}
+
+void enterCASTNO()
+{
+	cout << "Enter the No. of CAST : ";
+}
+
+void enterCASTJOB()
+{
+	cout << "Enter the job of CAST : ";
+}
+
+void enterCASTNAME()
+{
+	cout << "Enter the name of CAST : ";
+}
+
+void enterCASTAGE()
+{
+	cout << "Enter the age of CAST : ";
+}
+
+void enterForeignKeyOfENTNO()
+{
+	cout << "Enter the Entertainment No. of CAST : ";
+}
+
+void enterForeignKeyOfTVPNO()
+{
+	cout << "Enter the TV No. of CAST : ";
+}
+
+void enterDEPNAME()
+{
+	cout << "Enter the name of DEPENDENT : ";
+}
+
+void enterWEDDINGANNIVERSARY()
+{
+	cout << "Enter the Wedding Anniversary of DEPENDENT : ";
+}
+
+void enterForeignKeyOfEMPNO()
+{
+	cout << "Enter the No. of DEPENDENT: ";
+}
+
+void enterEMPNO()
+{
+	cout << "Enter the No. of EMPLOYEE : ";
+}
+
+void enterEMPNAME()
+{
+	cout << "Enter the name of EMPLOYEE : ";
+}
+
+void enterSALARY()
+{
+	cout << "Enter the salary of EMPLOYEE : ";
+}
+
+void enterForeignKeyOfBNOEMP()
+{
+	cout << "Enter the BNO No. of EMPLOYEE : ";
+}
+
+void enterENTNO()
+{
+	cout << "Enter the No. of ENTERTAINMENT : ";
+}
+
+void enterENTNAME()
+{
+	cout << "Enter the name of ENTERTAINMENT : ";
+}
+
+void enterLOCATIONForEnt()
+{
+	cout << "Enter the LOCATION of ENTERTAINMENT : ";
+}
+
+void enterTVPNO()
+{
+	cout << "Enter the No. of TVPROGRAM : ";
+}
+
+void enterTVPNAME()
+{
+	cout << "Enter the name of TVPROGRAM : ";
+}
+
+void enterRATING()
+{
+	cout << "Enter the rating of TVPROGRAM : ";
+}
+
+void enterTVPTIME()
+{
+	cout << "Enter the time of TVPROGRAM : ";
+}
+
+void enterForeignKeyOfBNO()
+{
+	cout << "Enter the BNO No. of TVPROGRAM : ";
+}
+
+void updateAllOfStation()
+{
+	system("cls");
+	printTitle("Update All Broadcasting Station Information");
+}
+
+void updateAllOfCast()
+{
+	system("cls");
+	printTitle("Update All Cast Information");
+}
+
+void updateAllOfDependent()
+{
+	system("cls");
+	printTitle("Update All Dependent Information");
+}
+
+void updateAllOfEmployee()
+{
+	system("cls");
+	printTitle("Update All Employee Information");
+}
+
+void updateAllOfEnt()
+{
+	system("cls");
+	printTitle("Update All Entertainment Information");
+}
+
+void updateAllOfTvProgram()
+{
+	system("cls");
+	printTitle("Update All TV Program Information");
+}
+
+void printNewInputData()
+{
+	cout << "式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式";
+	centerString("UPDATE MODE - INPUT NEW DATA !!");
+	cout << "式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式" << endl;
+}
 
 
 /*						PRINT							*/
